@@ -1,3 +1,5 @@
+import Card from "./component/Card";
+
 function App() {
   //logic
   console.log("App.js");
@@ -57,11 +59,68 @@ if(user2.id === 'jjocoach6265' && user2.password === 'password') {
 };
 
 
+//Default parameter
+
+// 함수 정의
+const greeting = (input = "고객") => {
+  return `${input}님, 반갑습니다!`;
+};
+// 함수 호출
+console.log("greeting", greeting(''))
+greeting();
+
+// 구조분해 할당
+const studentList = ['김태욱', '정세현'];
+const [firstStudent, secondStudent] = studentList;
+
+console.log('firstStudent:', firstStudent);
+console.log('secondStudent', secondStudent);
+
+// 객체 구조분해 할당
+const person = {
+  name: '조재원',
+  age: 29,
+  email: 'jjocoach6265@gmail.com'
+};
+
+const messageItem = {
+  messageId: 1,
+  message: "안녕하세요",
+};
+console.log("message", messageItem)
+
+// const {name: name1, age: age1, email} = person;
+// console.log("name", name1);
+// console.log("age", age1);
+// console.log("email", email);
+
+// 배열 구조분해 할당
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   //view
   return (
-    <div>Hello world</div>);
+    <>
+      <Card />
+      <Card />
+    </>);
 }
 
 export default App;
