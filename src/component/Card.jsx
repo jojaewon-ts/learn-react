@@ -1,20 +1,21 @@
 import React from 'react'
 import CardButton from './CardButton';
 
-const Card = () => {
+const Card = ({title, subText, onCardClick}) => {
   //logic
-  
-
-
+  const className = "teamsmart";
+  const handleClick = () => {
+    console.log("click1");
+  };
   //view
   return (
     <div className="card">
-      <h5 className="card-title">Card title
+      <h5 className="card-title">{title}
       </h5>
-      <p className="Card-sub-text">
-      Some quick example text to build on the card title and make up the bulk of the card's content.
+      <p className={className}>
+      {subText}
       </p>
-      <CardButton />
+      <CardButton onClick={handleClick} />
     </div>
   )
 }

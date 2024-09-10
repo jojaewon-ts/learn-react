@@ -1,6 +1,8 @@
 import Card from "./component/Card";
 import Counter from "./component/Counter";
-// import Login from "./component/Login";
+import Login from "./pages/Login";
+
+
 
 function App() {
   //logic
@@ -98,32 +100,15 @@ console.log("message", messageItem)
 
 // 배열 구조분해 할당
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   //view
   return (
     <>
-      {/* <Card />
-      <Card /> */}
-      {/* <Login /> */}
-      <Counter />
+      {/* <Card title={"팀스마트"} 
+      subText="케파" />
+      <Card title={"케파"}
+      subText={"디지털헬스케어"}/> */}
+      <Login />
+      {/* <Counter /> */}
     </>);
 }
 
