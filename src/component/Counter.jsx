@@ -18,15 +18,22 @@ const Counter = () => {
 const [counter, setCounter] = useState(0);
 
   const increase = () => {
-    setCounter(counter + 1);
+    if (counter < 10) {
+      setCounter(counter + 1);
+    }
   };
 
-
+  const decrease = () => {
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
+  };
+  
   return (
     <div style={{textAlign: "center"}}>
       <h2>{counter}</h2>
       <button type="button" onClick={increase}>+1</button>
-      <button type='button'>-1</button>
+      <button type='button' onClick={decrease}>-1</button>
     </div>
   )
 }
