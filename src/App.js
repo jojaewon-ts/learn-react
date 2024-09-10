@@ -1,4 +1,6 @@
 import Card from "./component/Card";
+import Counter from "./component/Counter";
+// import Login from "./component/Login";
 
 function App() {
   //logic
@@ -118,8 +120,10 @@ console.log("message", messageItem)
   //view
   return (
     <>
-      <Card />
-      <Card />
+      {/* <Card />
+      <Card /> */}
+      {/* <Login /> */}
+      <Counter />
     </>);
 }
 

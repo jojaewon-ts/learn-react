@@ -2,6 +2,11 @@ import React from 'react'
 import CardButton from './CardButton';
 
 const Card = () => {
+  //logic
+  
+
+
+  //view
   return (
     <div className="card">
       <h5 className="card-title">Card title
