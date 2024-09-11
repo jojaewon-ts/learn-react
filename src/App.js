@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Card from "./component/Card";
 import Counter from "./component/Counter";
 import ThemeButton from "./component/ThemeButton";
@@ -105,15 +106,35 @@ console.log("message", messageItem)
 // 모드 변경 논리
 /**
  * 1. ThemeButton 컴포넌트에서 버튼을 클릭한다
+ * 2. 버튼이 눌려졌다는 이벤트를 부모 컴포넌트에 전송한다
+ * 3. 부모 컴포넌트가 이벤트를 받으면 div 클래스를 변환하는 함수를 생성한다
+ * 4. [state] isDarkMode라는 state를 생성한다 (초기값은 false)
+ * 5. isDarkMode state를 wrap클래스가 있는 div에 className의 속성을 다르게 넣어준다
+ * 5-1. 다크모드인 경우엔 'dark-mode'라는 클래스를 준다
+ * 5-2. 다크모드가 아닌 경우엔 'light-mode'라는 클래스를 준다
+ * 6. handleTheme함수에서 isDarkMode의 값을 토글로 변경해준다
+ * 7. ThemeButton 컴포넌트에 isDarkMode라는 props를 내려준다
+ * 7-1. 이 props에는 isDarkMode의 값을 넣어준다
+ * 8. ThemeButton컴포넌트에 isDarkMode의 값을 받아서 true인 경우엔 '다크 모드' false인 경우엔 '라이트 모드'라는 텍스를 UI에 보여준다
+ * 
  */
+
+
+const [isDarkMode, setIsDarkMode] = useState(false)
+
+const handleTheme = () => {
+  setIsDarkMode(!isDarkMode)
+}
+
+
   //view
   return (
-    <div className="wrap">
+    <div className={`wrap ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <Card title={"팀스마트"} 
       subText="케파" />
       <Card title={"케파"}
       subText={"디지털헬스케어"}/>
-      <ThemeButton />
+      <ThemeButton isDarkMode={isDarkMode} onTheme={handleTheme} />
       {/* <Login /> */}
       {/* <Counter /> */}
     </div>);
