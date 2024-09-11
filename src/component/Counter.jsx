@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
 
 const Counter = () => {
   /**
@@ -28,7 +29,22 @@ const [counter, setCounter] = useState(0);
       setCounter(counter - 1);
     }
   };
-  
+
+//1. 컴포넌트에 존재하는 state가 하나라도 변경시 실행
+useEffect(() => {});
+
+//2. 컴포넌트가 마운트 될때(화면에 보여지는 순간) 딱 1번 실행
+useEffect(() => {
+  console.log('딱 1번 실행!!!')
+}, []);
+
+//3. 의존성 state 변경시 실행
+useEffect(() => {
+  console.log('counter 변경 될때마다')
+}, [counter]);
+
+
+//view
   return (
     <div style={{textAlign: "center"}}>
       <h2>{counter}</h2>

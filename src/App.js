@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./component/Card";
 import Counter from "./component/Counter";
 import ThemeButton from "./component/ThemeButton";
@@ -120,12 +120,24 @@ console.log("message", messageItem)
  */
 
 
-const [isDarkMode, setIsDarkMode] = useState(false)
+const [isDarkMode, setIsDarkMode] = useState(false);
+
+const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+const [messages, setMessages] = useState([{
+  text: '첫번째 메세지',
+  id: 1,
+},
+]);
 
 const handleTheme = () => {
   setIsDarkMode(!isDarkMode)
 }
 
+
+  useEffect(() => {
+    alert(isDarkMode ? '다크모드' : '라이트모드')
+  }, [isDarkMode])
 
   //view
   return (
@@ -135,6 +147,12 @@ const handleTheme = () => {
       <Card title={"케파"}
       subText={"디지털헬스케어"}/>
       <ThemeButton isDarkMode={isDarkMode} onTheme={handleTheme} />
+
+      {isLoggedIn ? <h2>환영 합니다</h2> : <h2>로그인 해주세요</h2>}
+      {messages.length && <h2>새로운 메세지가 {messages.length}개 있습니다</h2>}
+
+
+
       {/* <Login /> */}
       {/* <Counter /> */}
     </div>);
