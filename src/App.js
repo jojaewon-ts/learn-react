@@ -1,5 +1,6 @@
 import Card from "./component/Card";
 import Counter from "./component/Counter";
+import ThemeButton from "./component/ThemeButton";
 import Login from "./pages/Login";
 
 
@@ -100,16 +101,22 @@ console.log("message", messageItem)
 
 // 배열 구조분해 할당
 
+
+// 모드 변경 논리
+/**
+ * 1. ThemeButton 컴포넌트에서 버튼을 클릭한다
+ */
   //view
   return (
-    <>
-      {/* <Card title={"팀스마트"} 
+    <div className="wrap">
+      <Card title={"팀스마트"} 
       subText="케파" />
       <Card title={"케파"}
-      subText={"디지털헬스케어"}/> */}
-      <Login />
+      subText={"디지털헬스케어"}/>
+      <ThemeButton />
+      {/* <Login /> */}
       {/* <Counter /> */}
-    </>);
+    </div>);
 }
 
 export default App;

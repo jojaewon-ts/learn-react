@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InputField = () => {
+const InputField = ({ type, placeholder }) => {
   return (
     <div>
 
